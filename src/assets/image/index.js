@@ -1,0 +1,10 @@
+export { default as ArrowLeft } from './arrow-left.svg';
+export { default as CheckEmpty } from './check-empty.svg';
+export { default as CheckFull } from './check-full.svg';
+export { default as Correct } from './correct.svg';
+export { default as EmailIcon } from './email-icon.svg';
+export { default as FacebookIcon } from './facebook.svg';
+export { default as IncorrectIcon } from './INCORRECT.svg';
+export { default as OfflineIcon } from './offline.svg';
+export { default as ShowIcon } from './show.svg';
+export { default as CloseIcon } from './close.svg';

@@ -1,0 +1,16 @@
+image: node:10-alpine
+
+stages: 
+  - lint
+
+cache:
+  paths: 
+  - node_modules/
+  - .yarn
+
+lintCheck:
+ stage: lint
+ script:
+    - yarn
+    - yarn eslint
+    - yarn flow
