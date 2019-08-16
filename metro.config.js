@@ -8,17 +8,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { getDefaultConfig } = require('metro-config');
 
-// module.exports = {
-//   transformer: {
-//     getTransformOptions: async () => ({
-//       transform: {
-//         experimentalImportSupport: false,
-//         inlineRequires: false,
-//       },
-//     }),
-//   },
-// };
-
 
 module.exports = (async () => {
   const {
@@ -38,7 +27,7 @@ module.exports = (async () => {
     },
     resolver: {
       assetExts: assetExts.filter(ext => ext !== 'svg'),
-      sourceExts: [...sourceExts, 'svg'],
+      sourceExts: [...sourceExts, 'svg', 'jsx'],
     },
   };
 })();

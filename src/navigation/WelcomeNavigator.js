@@ -2,11 +2,12 @@ import React from 'react';
 import { Easing, Animated } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
-import { WelcomeHeader } from 'components';
-import LogIn from 'screens/Welcome/LogIn';
-import WelcomeBack from 'screens/Welcome/WelcomeBack';
-import Forgot from 'screens/Welcome/Forgot';
-import SignUp from 'screens/Welcome/SignUp';
+import { WelcomeHeader } from '~/components';
+import LogIn from '~/screens/Welcome/LogIn';
+import WelcomeBack from '~/screens/Welcome/WelcomeBack';
+import Forgot from '~/screens/Welcome/Forgot';
+import SignUp from '~/screens/Welcome/SignUp';
+import ConfirmEmail from '~/screens/Welcome/ConfirmEmail';
 import routes from './helpers/routes';
 
 const header = props => ({ header: () => <WelcomeHeader {...props} /> });
@@ -36,7 +37,7 @@ export default createStackNavigator(
   {
     [routes.Welcome.LogIn]: {
       screen: LogIn,
-      navigationOptions: header({ title: 'Log in', firstScreen: true }),
+      navigationOptions: header({ title: 'Log in', noBackIcon: true }),
     },
     [routes.Welcome.WelcomeBack]: {
       screen: WelcomeBack,
@@ -49,6 +50,13 @@ export default createStackNavigator(
     [routes.Welcome.SignUp]: {
       screen: SignUp,
       navigationOptions: header({ title: 'Sign up' }),
+    },
+    [routes.Welcome.ConfirmEmail]: {
+      screen: ConfirmEmail,
+      navigationOptions: header({
+        title: 'Almost done',
+        backToTop: true,
+      }),
     },
   },
   {

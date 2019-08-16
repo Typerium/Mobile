@@ -44,6 +44,10 @@ function pop() {
   navigator.dispatch(StackActions.pop());
 }
 
+function popToTop() {
+  navigator.dispatch(StackActions.popToTop());
+}
+
 function getActiveRouteName(navigationState) {
   if (!navigationState) {
     return null;
@@ -60,6 +64,7 @@ export default {
   reset,
   replace,
   pop,
+  popToTop,
   setTopLevelNavigator,
   getActiveRouteName,
 };

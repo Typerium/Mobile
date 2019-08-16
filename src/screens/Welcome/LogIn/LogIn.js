@@ -12,22 +12,29 @@ import {
   Button,
   FacebookButton,
   Linked,
-} from 'components';
-import { NavigationService, routes } from 'navigation';
-import { authSaga } from 'store/app/actions';
+} from '~/components';
+import { NavigationService, routes } from '~/navigation';
+import { signIn } from '~/store/welcome/actions';
+import { validateEmail } from '~/utils/validation';
 import styles from './styles';
 
 type Props = {
-  auth: ({email: string, password: string}) => {}
+  auth: ({login: string, password: string}) => {}
 }
 
 const LogIn = ({ auth }: Props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [login, setLogin] = useState('example@sfxdx.com');
+  const [password, setPassword] = useState('sfxdx.com');
   const [isSecure, setSecure] = useState(true);
   const [remember, setRemember] = useState(false);
 
-  const handleLogIn = () => auth({ email, password });
+  const handleLogIn = () => auth({ login, password, remember });
+
+  const loginIsCorrect = validateEmail(login);
+  const passwordIsCorrect = password.length > 8;
+
+  const changePassword = text => setPassword(text.replace(' ', ''));
+  const changeLogin = text => setLogin(text.replace(' ', ''));
 
   return (
     <Wrapper style={styles.container} padding>
@@ -37,21 +44,21 @@ const LogIn = ({ auth }: Props) => {
       </WelcomeSubtitle>
 
       <Input
-        value={email}
-        onChangeText={setEmail}
+        value={login}
+        onChangeText={changeLogin}
         label="E-mail or username"
         labelSecond="EMAIL or USERNAME"
-        correct={email.length > 2 ? 'Error' : ''}
-        error={email.length === 2 ? 'Error' : ''}
+        correct={loginIsCorrect}
+        // error={login.length === 2 ? 'Error' : ''}
         style={styles.input}
       />
       <Input
         value={password}
-        onChangeText={setPassword}
+        onChangeText={changePassword}
         label="Password"
         labelSecond="PASSWORD"
-        correct={password.length > 5}
-        error=""
+        correct={passwordIsCorrect}
+        // error=""
         isSecure={isSecure}
         isSecureText
         handleSecure={setSecure}
@@ -77,7 +84,7 @@ const LogIn = ({ auth }: Props) => {
       <Button
         text="LOG IN"
         onPress={handleLogIn}
-        isActive
+        isActive={loginIsCorrect && passwordIsCorrect}
       />
       <Button
         text="CREATE ACCOUNT"
@@ -92,6 +99,6 @@ const LogIn = ({ auth }: Props) => {
 export default connect(
   null,
   {
-    auth: authSaga,
+    auth: signIn,
   },
 )(LogIn);

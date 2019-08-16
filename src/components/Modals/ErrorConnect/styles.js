@@ -39,4 +39,7 @@ export default StyleSheet.create({
   text: {
     fontSize: 12,
   },
+  close: {
+    paddingVertical: 20,
+  },
 });

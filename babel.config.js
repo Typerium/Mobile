@@ -4,12 +4,7 @@ module.exports = {
     ['module-resolver', {
       root: ['./src'],
       alias: {
-        components: './src/components',
-        screens: './src/screens',
-        store: './src/store',
-        navigation: './src/navigation',
-        utils: './src/utils',
-        assets: './src/assets',
+        '~': './src',
       },
     }],
     'import-graphql',

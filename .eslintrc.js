@@ -32,14 +32,9 @@ module.exports = {
       "import/resolver": {
         "alias": {
           "map": [
-            ["components", "./src/components"],
-            ["screens", "./src/screens"],
-            ["navigation", "./src/navigation"],
-            ["utils", "./src/utils"],
-            ["assets", "./src/assets"],
-            ["store", "./src/store"],
+            ["~", "./src"],
           ],
-          "extensions": [".js", ".jsx", ".json"]
+          "extensions": [".js", ".jsx", ".json", ".native.js"]
         }
       }
     },

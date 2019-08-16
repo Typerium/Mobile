@@ -1,0 +1,11 @@
+export { default as FacebookVertical } from './facebook_ver.svg';
+export { default as Facebook } from './facebook.svg';
+export { default as Instagram } from './instagram.svg';
+export { default as InstagramVertical } from './instagram_ver.svg';
+export { default as PinterestHorizontal } from './pinterest_hor.svg';
+export { default as SnapchatVertical } from './snapchat_ver.svg';
+export { default as Steem } from './steem.svg';
+export { default as TumblrVertical } from './tumblr_ver.svg';
+export { default as TwitterHorizontal } from './twitter_hor.svg';
+export { default as Youtube } from './youtube.svg';
+export { default as YoutubeHorizontal } from './youtube_hor.svg';

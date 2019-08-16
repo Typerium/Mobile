@@ -39,7 +39,7 @@ export default StyleSheet.create({
   inputCode: {
     height: 48,
     color: '#2CFEFA',
-    maxWidth: 70,
+    width: 70,
     marginLeft: 1,
     marginRight: 0,
     borderTopLeftRadius: 8,

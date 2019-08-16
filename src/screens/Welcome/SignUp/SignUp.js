@@ -15,21 +15,29 @@ import {
   Button,
   FacebookButton,
   Linked,
-} from 'components';
-import { fitScreenSize } from 'utils/platform';
-import { authSaga } from 'store/app/actions';
+  PasswordStrength,
+} from '~/components';
+import { NavigationService, routes } from '~/navigation';
+import { fitScreenSize } from '~/utils/platform';
+import { validateEmail } from '~/utils/validation';
+import { signUp } from '~/store/welcome/actions';
+import { showPhoneCodes as showPhoneCodesAction } from '~/store/modals/actions';
 import styles from './styles';
 
 const paddingHorizontal = fitScreenSize(32);
 
 type Props = {
-  auth: ({email: string, password: string}) => {}
+  phoneCode: string,
+  phoneCodeCountry: string,
+  showPhoneCodes: (boolean, Function) => {},
+  sign: ({email: string, password: string}) => {}
 }
 
-const SignUp = ({ auth }: Props) => {
+const SignUp = ({
+  sign, showPhoneCodes, phoneCode, phoneCodeCountry,
+}: Props) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [phoneCode, setPhoneCode] = useState('');
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [isSecure, setSecure] = useState(true);
@@ -37,7 +45,33 @@ const SignUp = ({ auth }: Props) => {
   const [isReSecure, setReSecure] = useState(true);
   const [agreePP, setAgreePP] = useState(false);
 
-  const handleSignUp = () => auth({ email, password });
+  const changeEmail = text => setEmail(text.replace(' ', ''));
+  const changeName = text => setUserName(text.replace(' ', ''));
+  const changePassword = text => setPassword(text.replace(' ', ''));
+
+  const nameIsCorrect = !!userName.length;
+  const emailIsCorrect = validateEmail(email);
+  const passwordIsCorrect = password.length > 5;
+  const rePasswordIsCorrect = rePassword.length > 5;
+  const rePasswordError = rePassword
+    && rePasswordIsCorrect
+    && (password !== rePassword) ? 'Passwords do not match' : false;
+  const isActiveButton = nameIsCorrect && emailIsCorrect
+    && passwordIsCorrect && rePasswordIsCorrect
+    && agreePP && !rePasswordError;
+
+  const handleSignUp = () => {
+    sign({
+      email,
+      userName,
+      phone: `${phoneCode}${phone}`,
+      password,
+    });
+  };
+  const handleSignIn = () => NavigationService.navigate(routes.Welcome.LogIn);
+  const handlePhoneCode = () => {
+    showPhoneCodes(true);
+  };
 
   return (
     <Wrapper style={styles.container}>
@@ -47,45 +81,45 @@ const SignUp = ({ auth }: Props) => {
           social media
         </WelcomeSubtitle>
       </View>
-      <WrapperScroll>
+      <WrapperScroll padding>
         <Input
           value={userName}
-          onChangeText={setUserName}
+          onChangeText={changeName}
           label="Username"
           labelSecond="NAME"
-          correct={userName.length > 5}
+          correct={nameIsCorrect}
           correctHideIcon
-          error={userName.length === 5 ? 'Error 1' : ''}
+          // error={userName.length === 5 ? 'Error 1' : ''}
           style={styles.input}
         />
         <Input
           value={email}
-          onChangeText={setEmail}
+          onChangeText={changeEmail}
           label="E-mail or username"
           labelSecond="EMAIL or USERNAME"
-          correct={false}
+          correct={emailIsCorrect}
           correctHideIcon
-          error={email.length === 2 ? 'Error 2 ' : ''}
+          // error={email.length === 2 ? 'Error 2 ' : ''}
           style={styles.input}
         />
         <PhoneNumber
           number={phone}
           code={phoneCode}
+          codeCountry={phoneCodeCountry}
           onChangeNumber={setPhone}
-          onChangeCode={setPhoneCode}
+          onHandleCode={handlePhoneCode}
           label="Mobile number"
           labelSecond="MOBILE NUMBER"
-          correct={false}
           correctHideIcon
-          error={email.length === 5 ? 'Error 3' : ''}
+          // error={email.length === 5 ? 'Error 3' : ''}
           style={styles.input}
         />
         <Input
           value={password}
-          onChangeText={setPassword}
+          onChangeText={changePassword}
           label="Password"
           labelSecond="PASSWORD"
-          correct={password.length > 5}
+          correct={passwordIsCorrect}
           error=""
           isSecure={isSecure}
           isSecureText
@@ -97,13 +131,15 @@ const SignUp = ({ auth }: Props) => {
           onChangeText={setRePassword}
           label="Re-type password"
           labelSecond="RE-TYPE PASSWORD"
-          correct={rePassword.length > 5}
-          error=""
+          correct={rePasswordIsCorrect}
+          error={rePasswordError}
           isSecure={isReSecure}
           isSecureText
           handleSecure={setReSecure}
           style={styles.input}
         />
+
+        <PasswordStrength password={password} />
 
         <FacebookButton style={styles.fb} />
 
@@ -128,7 +164,6 @@ const SignUp = ({ auth }: Props) => {
               />
             </View>
           </CheckBox>
-
         </View>
 
         <View style={styles.emptySpace} />
@@ -136,11 +171,11 @@ const SignUp = ({ auth }: Props) => {
         <Button
           text="SIGN UP"
           onPress={handleSignUp}
-          isActive
+          isActive={isActiveButton}
         />
         <Button
           text="LOG IN"
-          onPress={handleSignUp}
+          onPress={handleSignIn}
           isActive
           second
         />
@@ -149,9 +184,11 @@ const SignUp = ({ auth }: Props) => {
   );
 };
 
-export default connect(
-  null,
-  {
-    auth: authSaga,
-  },
-)(SignUp);
+export default connect(state => ({
+  phoneCode: state.modals.phoneCode,
+  phoneCodeCountry: state.modals.phoneCodeCountry,
+}),
+{
+  sign: signUp,
+  showPhoneCodes: showPhoneCodesAction,
+})(SignUp);

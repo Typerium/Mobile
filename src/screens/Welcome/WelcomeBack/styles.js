@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fitScreenSize } from 'utils/platform';
+import { fitScreenSize } from '~/utils/platform';
 
 export default StyleSheet.create({
   subtitle: {

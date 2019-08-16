@@ -1,0 +1,131 @@
+PODS:
+  - boost-for-react-native (1.63.0)
+  - DoubleConversion (1.1.6)
+  - FBSDKCoreKit (5.0.2):
+    - FBSDKCoreKit/Basics (= 5.0.2)
+    - FBSDKCoreKit/Core (= 5.0.2)
+  - FBSDKCoreKit/Basics (5.0.2)
+  - FBSDKCoreKit/Core (5.0.2):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.0.2):
+    - FBSDKCoreKit (~> 5.0)
+  - FBSDKShareKit (5.0.2):
+    - FBSDKCoreKit (~> 5.0)
+  - Folly (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.5)
+  - React (0.59.10):
+    - React/Core (= 0.59.10)
+  - react-native-camera (3.1.1):
+    - React
+    - react-native-camera/RCT (= 3.1.1)
+    - react-native-camera/RN (= 3.1.1)
+  - react-native-camera/RCT (3.1.1):
+    - React
+  - react-native-camera/RN (3.1.1):
+    - React
+  - react-native-fbsdk (0.10.1):
+    - React
+    - react-native-fbsdk/Core (= 0.10.1)
+    - react-native-fbsdk/Login (= 0.10.1)
+    - react-native-fbsdk/Share (= 0.10.1)
+  - react-native-fbsdk/Core (0.10.1):
+    - FBSDKCoreKit (~> 5.0.0)
+    - React
+  - react-native-fbsdk/Login (0.10.1):
+    - FBSDKLoginKit (~> 5.0.0)
+    - React
+  - react-native-fbsdk/Share (0.10.1):
+    - FBSDKShareKit (~> 5.0.0)
+    - React
+  - React/Core (0.59.10):
+    - yoga (= 0.59.10.React)
+  - React/CxxBridge (0.59.10):
+    - Folly (= 2018.10.22.00)
+    - React/Core
+    - React/cxxreact
+    - React/jsiexecutor
+  - React/cxxreact (0.59.10):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/jsinspector
+  - React/jsi (0.59.10):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React/jsiexecutor (0.59.10):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/cxxreact
+    - React/jsi
+  - React/jsinspector (0.59.10)
+  - RNCAsyncStorage (1.6.1):
+    - React
+  - RNScreens (1.0.0-alpha.22):
+    - React
+  - yoga (0.59.10.React)
+
+DEPENDENCIES:
+  - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - react-native-camera (from `../node_modules/react-native-camera`)
+  - react-native-fbsdk (from `../node_modules/react-native-fbsdk`)
+  - React/CxxBridge (from `../node_modules/react-native`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNScreens (from `../node_modules/react-native-screens`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - boost-for-react-native
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+
+EXTERNAL SOURCES:
+  DoubleConversion:
+    :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  Folly:
+    :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  glog:
+    :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  React:
+    :path: "../node_modules/react-native"
+  react-native-camera:
+    :path: "../node_modules/react-native-camera"
+  react-native-fbsdk:
+    :path: "../node_modules/react-native-fbsdk"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  FBSDKCoreKit: 3e41c402eb64ea7799c71833ff9e5690f27b9c42
+  FBSDKLoginKit: a88f36da648e4c5d60eb261c63eac067abb97130
+  FBSDKShareKit: 8695bbb97c18a381bbf2851a3f24f95a59121b82
+  Folly: de497beb10f102453a1afa9edbf8cf8a251890de
+  glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
+  react-native-camera: 88f19d7240667a8dae9d76414986c2893d712744
+  react-native-fbsdk: 38ee580e77319d03f8ed0bf4a020cbfd70dc4d2d
+  RNCAsyncStorage: 2e2e3feb9bdadc752a026703d8c4065ca912e75a
+  RNScreens: 720a9e6968beb73e8196239801e887d8401f86ed
+  yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
+
+PODFILE CHECKSUM: a4a4c709372ce4115ff7158a78c8dc9b77c7735e
+
+COCOAPODS: 1.6.0

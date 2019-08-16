@@ -1,27 +1,17 @@
-import Button from './Button';
-import Input from './Input';
-import Text from './Text';
-import CheckBox from './CheckBox';
-import Wrapper from './Wrapper';
-import WrapperScroll from './WrapperScroll';
-import WelcomeHeader from './WelcomeHeader';
-import WelcomeSubtitle from './WelcomeSubtitle';
-import FacebookButton from './FacebookButton';
-import Linked from './Linked';
-import PhotoProfile from './PhotoProfile';
-import PhoneNumber from './PhoneNumber';
-
-export {
-  Linked,
-  Text,
-  Input,
-  Button,
-  CheckBox,
-  Wrapper,
-  WrapperScroll,
-  WelcomeHeader,
-  WelcomeSubtitle,
-  FacebookButton,
-  PhotoProfile,
-  PhoneNumber,
-};
+export { default as Button } from './Button';
+export { default as Input } from './Input';
+export { default as Text } from './Text';
+export { default as CheckBox } from './CheckBox';
+export { default as Wrapper } from './Wrapper';
+export { default as WrapperScroll } from './WrapperScroll';
+export { default as WelcomeHeader } from './WelcomeHeader';
+export { default as WelcomeSubtitle } from './WelcomeSubtitle';
+export { default as FacebookButton } from './FacebookButton';
+export { default as Linked } from './Linked';
+export { default as PhotoProfile } from './PhotoProfile';
+export { default as PhoneNumber } from './PhoneNumber';
+export { default as PasswordStrength } from './PasswordStrength';
+export { default as DashboardHeader } from './DashboardHeader';
+export { default as DashboardTabs } from './DashboardTabs';
+export { default as ScrollContent } from './ScrollContent';
+export { default as Camera } from './Camera';

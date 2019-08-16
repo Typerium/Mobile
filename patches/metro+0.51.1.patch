@@ -1,0 +1,51 @@
+diff --git a/node_modules/metro/src/lib/polyfills/require.js b/node_modules/metro/src/lib/polyfills/require.js
+index a1901a1..aa31b5e 100644
+--- a/node_modules/metro/src/lib/polyfills/require.js
++++ b/node_modules/metro/src/lib/polyfills/require.js
+@@ -98,26 +98,26 @@ function metroRequire(moduleId) {
+ 
+   var moduleIdReallyIsNumber = moduleId;
+ 
+-  if (__DEV__) {
+-    var initializingIndex = initializingModuleIds.indexOf(
+-      moduleIdReallyIsNumber
+-    );
+-
+-    if (initializingIndex !== -1) {
+-      var cycle = initializingModuleIds
+-        .slice(initializingIndex)
+-        .map(function(id) {
+-          return modules[id].verboseName;
+-        }); // We want to show A -> B -> A:
+-
+-      cycle.push(cycle[0]);
+-      console.warn(
+-        "Require cycle: ".concat(cycle.join(" -> "), "\n\n") +
+-          "Require cycles are allowed, but can result in uninitialized values. " +
+-          "Consider refactoring to remove the need for a cycle."
+-      );
+-    }
+-  }
++  // if (__DEV__) {
++  //   var initializingIndex = initializingModuleIds.indexOf(
++  //     moduleIdReallyIsNumber
++  //   );
++
++  //   if (initializingIndex !== -1) {
++  //     var cycle = initializingModuleIds
++  //       .slice(initializingIndex)
++  //       .map(function(id) {
++  //         return modules[id].verboseName;
++  //       }); // We want to show A -> B -> A:
++
++  //     cycle.push(cycle[0]);
++  //     console.warn(
++  //       "Require cycle: ".concat(cycle.join(" -> "), "\n\n") +
++  //         "Require cycles are allowed, but can result in uninitialized values. " +
++  //         "Consider refactoring to remove the need for a cycle."
++  //     );
++  //   }
++  // }
+ 
+   var module = modules[moduleIdReallyIsNumber];
+   return module && module.isInitialized

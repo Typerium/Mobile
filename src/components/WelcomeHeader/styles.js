@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { fitScreenSize, isIphoneX, isAndroid } from 'utils/platform';
+import { fitScreenSize, isIphoneX, isAndroid } from '~/utils/platform';
 
 const paddingHorizontal = fitScreenSize(32);
 let paddingTop = isIphoneX ? 44 : 30;
@@ -9,9 +9,9 @@ if (isAndroid) paddingTop = 10;
 export default StyleSheet.create({
   container: {
     paddingTop,
+    paddingHorizontal,
     width: '100%',
     backgroundColor: '#15171E',
-    paddingHorizontal,
   },
   title: {
     fontFamily: 'F37Ginger-Bold',

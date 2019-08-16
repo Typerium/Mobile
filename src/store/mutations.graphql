@@ -1,0 +1,23 @@
+mutation signIn ($login:String!, $password:String!) {
+  signIn (login:$login, password:$password) {
+    accessToken
+    refreshToken
+  }
+}
+
+mutation signUp ($email:String!, $userName:String!, $phone:String!, $password:String!, ) {
+ signUp (email:$email, userName:$userName, phone:$phone, password:$password) {
+    id
+    email
+    userName
+    phone
+    timeMark{
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation resetPassword ($email:String!) {
+  resetPassword (email:$email)
+}

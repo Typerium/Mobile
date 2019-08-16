@@ -12,8 +12,8 @@ import {
   FacebookButton,
   Linked,
   PhotoProfile,
-} from 'components';
-import { NavigationService, routes } from 'navigation';
+} from '~/components';
+import { NavigationService, routes } from '~/navigation';
 import styles from './styles';
 
 
@@ -21,6 +21,8 @@ const WelcomeBack = () => {
   const [password, setPassword] = useState('');
   const [isSecure, setSecure] = useState(true);
   const [remember, setRemember] = useState(false);
+
+  const correct = password.length > 3;
 
   return (
     <Wrapper style={styles.container} padding>
@@ -39,7 +41,7 @@ const WelcomeBack = () => {
         onChangeText={setPassword}
         label="Password"
         labelSecond="PASSWORD"
-        correct={password.length > 5}
+        correct={correct}
         error=""
         isSecure={isSecure}
         handleSecure={setSecure}
@@ -64,8 +66,8 @@ const WelcomeBack = () => {
 
       <Button
         text="LOG IN"
-        onPress={() => {}}
-        isActive={false}
+        onPress={() => NavigationService.navigate(routes.Welcome.LogIn)}
+        isActive={correct}
       />
       <Button
         text="CREATE ACCOUNT"

@@ -23,6 +23,7 @@ node_modules/warning/.*
 ; Flow doesn't support platforms
 .*/Libraries/Utilities/HMRLoadingView.js
 
+./src/store/api/schema/*
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*
 .*/node_modules/react-native-linear-gradient/*
@@ -36,14 +37,9 @@ node_modules/react-native/flow/
 [options]
 emoji=true
 
-module.name_mapper.extension='gql' -> '<PROJECT_ROOT>/src/utils/graphqlShim'
+module.name_mapper.extension='graphql' -> '<PROJECT_ROOT>/src/utils/graphqlShim'
 
-module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
-module.name_mapper='^screens' ->'<PROJECT_ROOT>/src/screens'
-module.name_mapper='^navigation' ->'<PROJECT_ROOT>/src/navigation'
-module.name_mapper='^utils' ->'<PROJECT_ROOT>/src/utils'
-module.name_mapper='^assets' ->'<PROJECT_ROOT>/src/assets'
-module.name_mapper='^store' ->'<PROJECT_ROOT>/src/store'
+module.name_mapper='^~' ->'<PROJECT_ROOT>/src'
 
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
@@ -106,4 +102,4 @@ untyped-import
 untyped-type-import
 
 [version]
-^0.98.1
+^0.102.0
