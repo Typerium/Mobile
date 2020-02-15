@@ -42,7 +42,7 @@
     "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.5",
     "rn-sliding-up-panel": "^2.3.0",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
