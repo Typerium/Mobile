@@ -28,7 +28,7 @@
     "postinstall-postinstall": "^2.0.0",
     "react": "16.8.3",
     "react-apollo": "^2.5.8",
-    "react-native": "0.59.10",
+    "react-native": "0.62.3",
     "react-native-camera": "^2.11.2",
     "react-native-email-link": "^1.4.0",
     "react-native-fbsdk": "^0.10.1",
